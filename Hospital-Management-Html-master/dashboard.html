@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>WECARE CLINIC - Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-color: #f1f4f8;
+    }
+
+    .container {
+      display: flex;
+      flex: 1;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
+      background-color: #004d40;
+      color: white;
+      height: 100vh;
+      position: fixed;
+      transition: width 0.3s ease;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+
+    .sidebar.collapsed {
+      width: 70px;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .sidebar.collapsed h2 {
+      display: none;
+    }
+
+    .sidebar a {
+      display: flex;
+      align-items: center;
+      padding: 12px 20px;
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #00796b;
+    }
+
+    .sidebar i {
+      margin-right: 10px;
+      min-width: 20px;
+      text-align: center;
+    }
+
+    .sidebar.collapsed a span {
+      display: none;
+    }
+
+    .toggle-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 20px;
+      padding: 10px 20px;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    /* Main Content */
+    .main {
+      margin-left: 240px;
+      padding: 30px;
+      transition: margin-left 0.3s ease;
+      flex: 1;
+    }
+
+    .collapsed + .main {
+      margin-left: 70px;
+    }
+
+    .main h1 {
+      color: #2e3d49;
+    }
+
+    .summary-card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .summary-card h3 {
+      color: #00796b;
+      margin-top: 0;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #000;
+      color: white;
+      padding: 40px 30px 20px;
+      margin-left: 240px;
+      transition: margin-left 0.3s ease;
+    }
+
+    .collapsed + .main + .footer {
+      margin-left: 70px;
+    }
+
+    .footer-columns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .footer-column {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .footer-column h2 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #26a69a;
+    }
+
+    .footer-column p,
+    .footer-column a {
+      color: #ddd;
+      font-size: 14px;
+      text-decoration: none;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .footer-column a:hover {
+      color: #80cbc4;
+    }
+
+    .footer-socials a {
+      margin: 0 10px;
+      color: #80cbc4;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 10px;
+      color: #ccc;
+      font-size: 14px;
+      border-top: 1px solid #444;
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 768px) {
+      .sidebar {
+        position: fixed;
+        height: 100%;
+        z-index: 1000;
+      }
+      .main, .footer {
+        margin-left: 70px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <button class="toggle-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+      <h2>WECARE CLINIC</h2>
+      <a href="dashboard.html"><i class="fas fa-home"></i><span> Dashboard</span></a>
+      <a href="profile.html"><i class="fas fa-user"></i><span> Profile</span></a>
+      <a href="appointment.html"><i class="fas fa-calendar-alt"></i><span> Appointment</span></a>
+      <a href="medicalhistory.html"><i class="fas fa-file-medical-alt"></i><span> Medical History</span></a>
+      <a href="Prescription.html"><i class="fas fa-pills"></i><span> Prescriptions</span></a>
+      <a href="bill.html"><i class="fas fa-credit-card"></i><span> Bill</span></a>
+      <a href="logout.html"><i class="fas fa-sign-out-alt"></i><span> Logout</span></a>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+      <h1>WELCOME</h1>
+      <p>Select a menu item to view or manage your clinic activities.</p>
+
+      <div class="summary-card">
+        <h3>Quick Summary</h3>
+        <p>✅ Upcoming appointments: <strong>2</strong></p>
+        <p>💊 Current prescription: <strong>Paracetamol 500mg</strong> (2/day)</p>
+        <p>💳 Last payment: ₹500 on <strong>10-May-2025</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer" id="footer">
+    <div class="footer-columns">
+      <div class="footer-column">
+        <h2>About WECARE</h2>
+        <p>Quality and affordability can coexist. We bring high-standard healthcare to every home in India.</p>
+      </div>
+      <div class="footer-column">
+        <h2>Latest Posts</h2>
+        <a href="blog.html">Health Tips – May 2025</a>
+        <a href="gallery.html">Clinic Expansion – April 2025</a>
+        <a href="terms.html">Terms and Conditions</a>
+      </div>
+      <div class="footer-column">
+        <h2>Links</h2>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+        <a href="appointment.html">Book Appointment</a>
+      </div>
+      <div class="footer-column">
+        <h2>Contact Us</h2>
+        <p>Ahmedabad, IN</p>
+        <p>Phone: 886 666 00555</p>
+        <p>Email: wecareclinic@gmail.com</p>
+        <div class="footer-socials">
+          <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.twitter.com/"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.linkedin.com/"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 WECARE CLINIC. All rights reserved.
+    </div>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const main = document.querySelector('.main');
+      const footer = document.getElementById('footer');
+
+      sidebar.classList.toggle('collapsed');
+      main.classList.toggle('collapsed');
+      footer.classList.toggle('collapsed');
+    }
+  </script>
+</body>
+</html>

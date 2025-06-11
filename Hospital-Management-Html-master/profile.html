@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Patient Profile - WECARE Clinic</title>
+<link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-HQEV5M4zT7NwZ9nX3TTVd0GJjpU1iV0X0..."
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin">
+  <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/header.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+
+  <style>
+    /* NAVBAR */
+    nav {
+      background-color: #004d40;
+      padding: 12px 30px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    }
+    nav .logo {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #26a69a;
+    }
+
+    /* GENERAL */
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .invoice-box {
+      background: #fff;
+      padding: 30px;
+      border: 1px solid #eee;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .clinic-info {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .clinic-info h2 {
+      color: #00796b;
+      margin-bottom: 5px;
+    }
+
+    h3 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    table th {
+      background-color: #00796b;
+      color: #fff;
+      padding: 10px;
+      text-align: left;
+    }
+
+    table td {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .total {
+      text-align: right;
+      font-weight: bold;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #000;
+      color: #fff;
+      padding: 40px 20px;
+      font-size: 16px;
+    }
+
+    .footer-container {
+      max-width: 1000px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-between;
+    }
+
+    .footer-column {
+      flex: 1 1 220px;
+      min-width: 200px;
+    }
+
+    .footer-column h3 {
+      border-bottom: 2px solid #fff;
+      padding-bottom: 8px;
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      line-height: 1.8;
+    }
+
+    .footer-column ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .footer-column address {
+      font-style: normal;
+      line-height: 1.8;
+    }
+
+    .footer-bottom {
+      max-width: 1000px;
+      margin: 30px auto 0;
+      padding-top: 15px;
+      border-top: 1px solid #333;
+      display: flex;
+      justify-content: space-between;
+      color: #bbb;
+      font-size: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom a {
+      color: #00ff99;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    .footer-column p {
+  color: #fff; /* or use #fff for pure white */
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+
+    /* SOCIAL ICONS */
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .social-links a {
+      color: #00e676;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+
+    .social-links a:hover {
+      color: #ffb74d;
+    }
+  
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <!-- NAVBAR -->
+<nav class="navbar">
+  <div class="d-flex align-items-center">
+    <img src="assets/img/logo/images.png" alt="WECARE Logo" style="height: 40px; margin-right: 10px;">
+    <span style="color: white; font-size: 22px; font-weight: bold;">WECARE CLINIC</span>
+  </div>
+  <ul class="nav">
+    <li><a class="nav-link text-white" href="dashboard.html">Dashboard</a></li>
+    <li><a class="nav-link text-white" href="profile.html">Profile</a></li>
+    <li><a class="nav-link text-white" href="medicalhistory.html">Medical History</a></li>
+    <li><a class="nav-link text-white" href="appointment.html">Appointment</a></li>
+    <li><a class="nav-link text-white" href="Prescription.html">Prescriptions</a></li>
+    <li><a class="nav-link text-white" href="bill.html">Bill</a></li>
+    <li><a class="nav-link text-white" href="logout.html">Logout</a></li>
+  </ul>
+</nav>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="container py-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1 class="h3 mb-0">Patient Profile</h1>
+      <button id="editBtn" class="btn btn-primary" onclick="toggleEdit()">Edit Profile</button>
+    </div>
+
+    <!-- View Mode -->
+    <div id="profileView" class="row gy-2 gx-4">
+
+      <div class="col-md-4 fw-semibold">Full Name:</div>
+      <div class="col-md-8" id="viewName">John Doe</div>
+
+      <div class="col-md-4 fw-semibold">Email Address:</div>
+      <div class="col-md-8" id="viewEmail">john@example.com</div>
+
+      <div class="col-md-4 fw-semibold">Phone Number:</div>
+      <div class="col-md-8" id="viewPhone">+91 9876543210</div>
+
+      <div class="col-md-4 fw-semibold">Date of Birth:</div>
+      <div class="col-md-8" id="viewDOB">1990-01-01</div>
+
+      <div class="col-md-4 fw-semibold">Gender:</div>
+      <div class="col-md-8" id="viewGender">Male</div>
+
+    </div>
+
+    <!-- Edit Mode -->
+    <form id="profileForm" class="row g-3 mt-2" style="display:none;" onsubmit="saveProfile(event)">
+      <div class="col-md-6">
+        <label for="fullname" class="form-label">Full Name</label>
+        <input type="text" id="fullname" name="fullname" class="form-control" required>
+      </div>
+
+      <div class="col-md-6">
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" id="email" name="email" class="form-control" required>
+      </div>
+
+      <div class="col-md-6">
+        <label for="phone" class="form-label">Phone Number</label>
+        <input type="tel" id="phone" name="phone" class="form-control" required>
+      </div>
+
+      <div class="col-md-6">
+        <label for="dob" class="form-label">Date of Birth</label>
+        <input type="date" id="dob" name="dob" class="form-control" required>
+      </div>
+
+      <div class="col-12 col-md-6">
+        <label for="gender" class="form-label">Gender</label>
+        <select id="gender" name="gender" class="form-select" required>
+          <option value="" disabled>Select your gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="col-12 text-end">
+        <button type="submit" class="btn btn-success">Save Changes</button>
+      </div>
+    </form>
+
+  </main>
+
+  <!-- FOOTER -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-column">
+      <img src="assets/img/logo/images.png" alt="WECARE Clinic Logo" style="height:60px; margin-bottom:10px;" />
+      <p>At WECARE Hospital, we believe that quality and affordability can go hand-in-hand in healthcare delivery.</p>
+      <p>Our mission is to provide high-quality healthcare to the broader population of India.</p>
+      <div class="social-links">
+        <a href="http://www.facebook.com"><i class="fab fa-facebook-f"></i></a>
+        <a href="http://www.skype.com"><i class="fab fa-skype"></i></a>
+        <a href="http://www.google.com"><i class="fab fa-google"></i></a>
+        <a href="http://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+        <a href="http://www.pinterest.com"><i class="fab fa-pinterest-p"></i></a>
+        <a href="http://www.twitter.com"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h3>Latest Posts</h3>
+      <ul>
+        <li><a href="blog.html">Incredible content</a><br><small>December 16, 2024</small></li>
+        <li><a href="gallery.html">Latest Images</a><br><small>December 16, 2024</small></li>
+        <li><a href="terms.html">Terms and Conditions</a><br><small>December 16, 2024</small></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Useful Links</h3>
+      <ul>
+        <li><a href="about.html">About us</a></li>
+        <li><a href="contact.html">Contact us</a></li>
+        <li><a href="appointment.html">Book Appointment</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Contact Us</h3>
+      <address>
+        WECARE Hospital<br>
+        Ahmedabad, IN<br>
+        Phone: 886 666 00555<br>
+        Email: wecareclinic@gmail.com
+      </address>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div>&copy; 2025 WECARE CLINIC. All rights reserved.</div>
+    <div>
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+  <!-- BOOTSTRAP & SCRIPT -->
+  <script>
+    function toggleEdit() {
+      const editBtn = document.getElementById('editBtn');
+      const profileView = document.getElementById('profileView');
+      const profileForm = document.getElementById('profileForm');
+
+      if (profileForm.style.display === 'block') {
+        profileForm.style.display = 'none';
+        profileView.style.display = 'flex';
+        editBtn.textContent = 'Edit Profile';
+      } else {
+        fullname.value = viewName.textContent.trim();
+        email.value = viewEmail.textContent.trim();
+        phone.value = viewPhone.textContent.trim();
+        dob.value = viewDOB.textContent.trim();
+        gender.value = viewGender.textContent.trim();
+
+        profileForm.style.display = 'block';
+        profileView.style.display = 'none';
+        editBtn.textContent = 'Cancel';
+      }
+    }
+
+    function saveProfile(e) {
+      e.preventDefault();
+      viewName.textContent = fullname.value.trim();
+      viewEmail.textContent = email.value.trim();
+      viewPhone.textContent = phone.value.trim();
+      viewDOB.textContent = dob.value;
+      viewGender.textContent = gender.value;
+
+      profileForm.style.display = 'none';
+      profileView.style.display = 'flex';
+      editBtn.textContent = 'Edit Profile';
+
+      alert('Profile updated successfully!');
+    }
+  </script>
+
+</body>
+</html>
