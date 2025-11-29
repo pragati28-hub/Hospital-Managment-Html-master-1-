@@ -28,9 +28,4 @@ Secure login for admin, doctors, and staff
 Technologies Used
 
 Frontend: HTML, CSS, JavaScript, Bootstrap
-
-
-
-
-
-Tools: VS Code, Git, Chrome DevTools
+Tools: VS Code, Git, 
